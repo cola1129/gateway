@@ -1,7 +1,7 @@
 package proxy
 
 import (
-	"github.com/fagongzi/gateway/pkg/filter"
+	"github.com/tongv/gateway/pkg/filter"
 )
 
 // XForwardForFilter XForwardForFilter

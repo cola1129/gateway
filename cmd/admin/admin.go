@@ -7,7 +7,7 @@ import (
 	"runtime"
 	"syscall"
 
-	"github.com/fagongzi/gateway/cmd/admin/pkg/server"
+	"github.com/tongv/gateway/cmd/admin/pkg/server"
 	"github.com/fagongzi/log"
 )
 

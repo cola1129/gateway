@@ -1,8 +1,8 @@
 <img src="../images/logo.png" height=80></img>
 
-[![Gitter](https://badges.gitter.im/fagongzi/gateway.svg)](https://gitter.im/fagongzi/gateway?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
-[![Build Status](https://api.travis-ci.org/fagongzi/gateway.svg)](https://travis-ci.org/fagongzi/gateway)
-[![Go Report Card](https://goreportcard.com/badge/github.com/fagongzi/gateway)](https://goreportcard.com/report/github.com/fagongzi/gateway)
+[![Gitter](https://badges.gitter.im/tongv/gateway.svg)](https://gitter.im/tongv/gateway?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+[![Build Status](https://api.travis-ci.org/tongv/gateway.svg)](https://travis-ci.org/tongv/gateway)
+[![Go Report Card](https://goreportcard.com/badge/github.com/tongv/gateway)](https://goreportcard.com/report/github.com/tongv/gateway)
 
 Gateway
 -------
@@ -30,8 +30,8 @@ Gateway 依赖 [etcd](https://github.com/coreos/etcd) 或者 [consul](https://gi
 必须使用go1.8以上版本，由于使用了go1.8的plugin机制
 
 ```
-git clone https://github.com/fagongzi/gateway.git
-cd $GOPATH/src/github.com/fagongzi/gateway
+git clone https://github.com/tongv/gateway.git
+cd $GOPATH/src/github.com/tongv/gateway
 go build cmd/proxy/proxy.go
 go build cmd/admin/admin.go
 ```
@@ -40,7 +40,7 @@ go build cmd/admin/admin.go
 [linux-64bit](http://7xtbpp.com1.z0.glb.clouddn.com/gateway-linux64.tar.gz)
 
 ## Docker
-使用 `docker pull fagongzi/gateway` 命令下载Docker镜像, 使用 `docker run -d fagongzi/gateway` 运行镜像. 镜像启动后export 3个端口:
+使用 `docker pull tongv/gateway` 命令下载Docker镜像, 使用 `docker run -d tongv/gateway` 运行镜像. 镜像启动后export 3个端口:
 
 * 80
 

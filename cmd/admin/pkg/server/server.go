@@ -3,7 +3,7 @@ package server
 import (
 	"sync"
 
-	"github.com/fagongzi/gateway/pkg/model"
+	"github.com/tongv/gateway/pkg/model"
 	"github.com/fagongzi/log"
 	"github.com/fagongzi/util/task"
 	"github.com/labstack/echo"

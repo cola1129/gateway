@@ -83,7 +83,7 @@ func (f BaseFilter) PostErr(c Context) {
 }
 ```
 
-这些相关的定义都在`github.com/fagongzi/gateway/pkg/filter`包中，每一个Filter都需要导入。其中的`Context`的上下文接口，提供了Filter和Gateway交互的能力;`BaseFilter`定义了默认行为。
+这些相关的定义都在`github.com/tongv/gateway/pkg/filter`包中，每一个Filter都需要导入。其中的`Context`的上下文接口，提供了Filter和Gateway交互的能力;`BaseFilter`定义了默认行为。
 
 ### Gateway加载Filter插件机制
 ```golang

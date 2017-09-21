@@ -11,9 +11,9 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/fagongzi/gateway/pkg/conf"
-	"github.com/fagongzi/gateway/pkg/model"
-	"github.com/fagongzi/gateway/pkg/util"
+	"github.com/tongv/gateway/pkg/conf"
+	"github.com/tongv/gateway/pkg/model"
+	"github.com/tongv/gateway/pkg/util"
 	"github.com/fagongzi/log"
 	"github.com/fagongzi/util/task"
 	"github.com/valyala/fasthttp"

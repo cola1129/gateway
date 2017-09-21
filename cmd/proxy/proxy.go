@@ -9,8 +9,8 @@ import (
 	"runtime"
 	"syscall"
 
-	"github.com/fagongzi/gateway/pkg/conf"
-	"github.com/fagongzi/gateway/pkg/proxy"
+	"github.com/tongv/gateway/pkg/conf"
+	"github.com/tongv/gateway/pkg/proxy"
 	"github.com/fagongzi/log"
 )
 

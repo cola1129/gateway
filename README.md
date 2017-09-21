@@ -1,8 +1,4 @@
-<img src="images/logo.png" height=80></img>
-
-[![Gitter](https://badges.gitter.im/fagongzi/gateway.svg)](https://gitter.im/fagongzi/gateway?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
-[![Build Status](https://api.travis-ci.org/fagongzi/gateway.svg)](https://travis-ci.org/fagongzi/gateway)
-[![Go Report Card](https://goreportcard.com/badge/github.com/fagongzi/gateway)](https://goreportcard.com/report/github.com/fagongzi/gateway)
+> Fork From https://github.com/fagongzi/gateway
 
 Gateway
 -------
@@ -123,5 +119,3 @@ Gateway provides the following extension points with the plugin mechanism of go1
 * Filter
    Use the plugin mechanism of go1.8 to write custom plugins and extend the gateway function. [How to write a custom filter](./docs/plugin-filter.md)
    
-# Contact
-WeChat: 13675153174

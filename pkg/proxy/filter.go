@@ -6,8 +6,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/fagongzi/gateway/pkg/filter"
-	"github.com/fagongzi/gateway/pkg/model"
+	"github.com/tongv/gateway/pkg/filter"
+	"github.com/tongv/gateway/pkg/model"
 	"github.com/fagongzi/log"
 	"github.com/valyala/fasthttp"
 )

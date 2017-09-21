@@ -16,10 +16,10 @@ If you want to build gateway with source, you need a [golang environment](https:
 Build gateway use commands as below：
 
 ```bash
-cd $GOPATH/src/github.com/fagongzi/gateway/cmd/proxy
+cd $GOPATH/src/github.com/tongv/gateway/cmd/proxy
 go build proxy.go
 
-cd $GOPATH/src/github.com/fagongzi/gateway/cmd/admin
+cd $GOPATH/src/github.com/tongv/gateway/cmd/admin
 go build admin.go
 ```
 
@@ -27,11 +27,11 @@ go build admin.go
 Gateway runtime has 2 components: admin & proxy. Admin is mete data manager system, proxy is a stateless http proxy.
 
 ## Run admin
-Admin is web system, provide JSON restful API, web resource is in `$$GOPATH/src/github.com/fagongzi/gateway/cmd/admin/public` dir. You can get help info use:
+Admin is web system, provide JSON restful API, web resource is in `$$GOPATH/src/github.com/tongv/gateway/cmd/admin/public` dir. You can get help info use:
 
 ```bash
 $ ./admin --help
-Usage of xxx/src/github.com/fagongzi/gateway/cmd/admin/admin:
+Usage of xxx/src/github.com/tongv/gateway/cmd/admin/admin:
   -addr string
         listen addr.(e.g. ip:port) (default ":8080")
   -cpus int
@@ -59,7 +59,7 @@ You can get help info use:
 
 ```bash
 $ ./proxy --help
-Usage of xxx/src/github.com/fagongzi/gateway/cmd/proxy/proxy:
+Usage of xxx/src/github.com/tongv/gateway/cmd/proxy/proxy:
   -config string
         config file
   -cpus int

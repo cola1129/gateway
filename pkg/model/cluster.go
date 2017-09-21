@@ -6,8 +6,8 @@ import (
 	"io"
 	"sync"
 
-	"github.com/fagongzi/gateway/pkg/lb"
-	"github.com/fagongzi/gateway/pkg/util"
+	"github.com/tongv/gateway/pkg/lb"
+	"github.com/tongv/gateway/pkg/util"
 	"github.com/fagongzi/log"
 	"github.com/valyala/fasthttp"
 )

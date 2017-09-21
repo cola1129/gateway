@@ -1,7 +1,7 @@
 package proxy
 
 import (
-	"github.com/fagongzi/gateway/pkg/model"
+	"github.com/tongv/gateway/pkg/model"
 	"github.com/fagongzi/log"
 )
 

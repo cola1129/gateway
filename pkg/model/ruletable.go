@@ -5,7 +5,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/fagongzi/gateway/pkg/conf"
+	"github.com/tongv/gateway/pkg/conf"
 	"github.com/fagongzi/goetty"
 	"github.com/fagongzi/log"
 	"github.com/fagongzi/util/task"

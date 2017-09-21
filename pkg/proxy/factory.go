@@ -5,8 +5,8 @@ import (
 	"plugin"
 	"strings"
 
-	"github.com/fagongzi/gateway/pkg/conf"
-	"github.com/fagongzi/gateway/pkg/filter"
+	"github.com/tongv/gateway/pkg/conf"
+	"github.com/tongv/gateway/pkg/filter"
 )
 
 var (

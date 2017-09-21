@@ -16,10 +16,10 @@ Gateway目前支持Consul作为元数据区的存储，所以需要一个Consul�
 执行如下命令：
 
 ```bash
-cd $GOPATH/src/github.com/fagongzi/gateway/cmd/proxy
+cd $GOPATH/src/github.com/tongv/gateway/cmd/proxy
 go build proxy.go
 
-cd $GOPATH/src/github.com/fagongzi/gateway/cmd/admin
+cd $GOPATH/src/github.com/tongv/gateway/cmd/admin
 go build admin.go
 ```
 
@@ -33,11 +33,11 @@ Gateway运行环境包含2个组件：`Admin` 和 `Proxy`
   Proxy是一个无状态的API代理，提供给终端用户直接访问。
 
 ## 运行 Admin
-Admin是一个WEB应用，提供`JSON restful API`，web的静态资源在`$GOPATH/src/github.com/fagongzi/gateway/cmd/admin/public`，静态资源需要和Admin二进制程序处于一个目录。
+Admin是一个WEB应用，提供`JSON restful API`，web的静态资源在`$GOPATH/src/github.com/tongv/gateway/cmd/admin/public`，静态资源需要和Admin二进制程序处于一个目录。
 
 ```bash
 $ ./admin --help
-Usage of $GOPATH/src/github.com/fagongzi/gateway/cmd/admin/admin:
+Usage of $GOPATH/src/github.com/tongv/gateway/cmd/admin/admin:
   -addr string
         listen addr.(e.g. ip:port) (default ":8080")
   -cpus int
@@ -66,7 +66,7 @@ You can get help info use:
 
 ```bash
 $ ./proxy --help
-Usage of $GOPATH/src/github.com/fagongzi/gateway/cmd/proxy/proxy:
+Usage of $GOPATH/src/github.com/tongv/gateway/cmd/proxy/proxy:
   -config string
         config file
   -cpus int
@@ -77,7 +77,7 @@ Usage of $GOPATH/src/github.com/fagongzi/gateway/cmd/proxy/proxy:
         log level. (default "info")
 ```
 
-Proxy启动以来一个JSON的配置文件，这个配置文件样例可以在`$GOPATH/src/github.com/fagongzi/gateway/cmd/proxy`目录下找到。
+Proxy启动以来一个JSON的配置文件，这个配置文件样例可以在`$GOPATH/src/github.com/tongv/gateway/cmd/proxy`目录下找到。
 
 ```json
 {
