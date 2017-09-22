@@ -57,6 +57,7 @@ function APIUpdateController($scope, $routeParams, $http, $location, $route) {
 
     $scope.update = function () {
         $scope.api.status = parseInt($scope.api.status)
+        $scope.api.auth = parseInt($scope.api.auth)
         $http.put('api/apis', $scope.api).success(function (data) {
             if ($scope.oldMethod != $scope.api.method || $scope.oldUrl != $scope.api.url) {
                 $http.delete('api/apis/' + Base64.encodeURI($scope.oldUrl) + "?method=" + $scope.oldMethod).success(function (data) {
@@ -80,10 +81,13 @@ function APICreateController($scope, $routeParams, $http, $location, $route) {
     $scope.newUrl = "";
     $scope.newDesc = "";
     $scope.newName = "";
+    $scope.newMethod = "*";
     $scope.newMock = {};
     $scope.newAccessControl = {};
     $scope.newNodes = [];
     $scope.newStatus = 0;
+    $scope.newAuth = 0;
+    $scope.newAuthhash = {};
 
 
     $scope.resetNode = function () {
@@ -124,11 +128,14 @@ function APICreateController($scope, $routeParams, $http, $location, $route) {
             "url": $scope.newUrl,
             "method": $scope.newMethod,
             "status": parseInt($scope.newStatus),
+            "auth": parseInt($scope.newAuth),
+            "authhash": $scope.newAuthhash,
             "desc": $scope.newDesc,
             "mock": $scope.newMock,
             "accessControl": $scope.newAccessControl,
             "nodes": $scope.newNodes,
         }
+
 
         $http.post('api/apis', d).success(function (data) {
             $location.path("/apis");

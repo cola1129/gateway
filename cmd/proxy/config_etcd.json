@@ -1,6 +1,6 @@
 {
-    "addr": ":80",
-    "mgrAddr": ":8081",
+    "addr": ":7100",
+    "mgrAddr": ":7101",
     "registryAddr": "etcd://127.0.0.1:2379",
     "prefix": "/gateway",
     "filers": [
@@ -30,6 +30,9 @@
         },
         {
             "name": "validation"
+        },
+        {
+            "name": "auth"
         }
     ],
     "maxConns": 512,

@@ -70,6 +70,9 @@ type MockHeader struct {
 	Value string `json:"value"`
 }
 
+// Auth Hash
+type AuthHash map[string]string;
+
 // API a api define
 type API struct {
 	Name          string         `json:"name, omitempty"`
@@ -77,6 +80,8 @@ type API struct {
 	Method        string         `json:"method"`
 	Domain        string         `json:"domain, omitempty"`
 	Status        int            `json:"status, omitempty"`
+	Auth          int            `json:"auth, omitempty"`
+	AuthHash      map[string]string      `json:"authHash, omitempty"`
 	AccessControl *AccessControl `json:"accessControl, omitempty"`
 	Mock          *Mock          `json:"mock, omitempty"`
 	Nodes         []*Node        `json:"nodes"`
@@ -206,6 +211,11 @@ func (a *API) RenderMock(ctx *fasthttp.RequestCtx) {
 	}
 
 	ctx.WriteString(a.Mock.Value)
+}
+
+// Auth response
+func (a *API) AuthCheck(ctx *fasthttp.RequestCtx) bool {
+	return a.Auth == 0 || authCheckDispatch(ctx)
 }
 
 // Marshal marshal

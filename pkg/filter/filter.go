@@ -24,6 +24,8 @@ type Context interface {
 
 	InBlacklist(ip string) bool
 	InWhitelist(ip string) bool
+	
+	AuthCheck() bool
 
 	IsCircuitOpen() bool
 	IsCircuitHalf() bool

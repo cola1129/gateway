@@ -122,6 +122,10 @@ func (c *proxyContext) InWhitelist(ip string) bool {
 	return c.result.API.AccessCheckWhitelist(ip)
 }
 
+func (c *proxyContext) AuthCheck() bool {
+	return c.result.API.AuthCheck(c.originCtx)
+}
+
 func (c *proxyContext) IsCircuitOpen() bool {
 	return c.result.Svr.GetCircuit() == model.CircuitOpen
 }

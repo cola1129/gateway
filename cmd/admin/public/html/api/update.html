@@ -32,6 +32,19 @@
 		</div>
 
 		<div class="form-group">
+			<label for="status">Auth</label>
+			<select class="form-control" ng-model="api.auth" id="auth">
+                <option value="0" selected="selected">No</option>
+                <option value="1">YES</option>
+            </select>
+		</div>
+
+		<div class="form-group">
+			<label for="desc">AuthHash</label>
+			<textarea json-text class="form-control" ng-model="api.authHash" id="authHash" rows="4"></textarea>
+		</div>
+
+		<div class="form-group">
 			<label for="desc">Desc</label>
 			<textarea class="form-control" ng-model="api.desc" id="desc" rows="4"></textarea>
 		</div>

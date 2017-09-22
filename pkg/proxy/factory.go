@@ -33,6 +33,8 @@ const (
 	FilterCircuitBreake = "CIRCUIT-BREAKE"
 	// FilterValidation validation request filter
 	FilterValidation = "VALIDATION"
+	// FilterValidation auth request filter
+	FilterAuth = "AUTH"
 )
 
 func newFilter(filterSpec *conf.FilterSpec) (filter.Filter, error) {
@@ -61,6 +63,8 @@ func newFilter(filterSpec *conf.FilterSpec) (filter.Filter, error) {
 		return newCircuitBreakeFilter(), nil
 	case FilterValidation:
 		return newValidationFilter(), nil
+	case FilterAuth:
+		return newAuthFilter(), nil
 	default:
 		return nil, ErrUnknownFilter
 	}
