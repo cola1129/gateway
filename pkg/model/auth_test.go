@@ -1,8 +1,11 @@
 package model
 
 import (
-	"strings"
-
-	"github.com/valyala/fasthttp"
+	"fmt"
+	"testing"
 )
+
+func TestSignData(t *testing.T) {
+	fmt.Println(signData("xxxxxx"))
+}
 
