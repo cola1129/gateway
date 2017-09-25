@@ -5,10 +5,10 @@ import (
 	"strings"
 	"sort"
 	"crypto/md5"
-//	"github.com/tongv/gateway/pkg/util"
+	"github.com/tongv/gateway/pkg/util"
 	"github.com/valyala/fasthttp"
 )
-func authCheckDispatch(ctx *fasthttp.RequestCtx,aHash AuthHash) bool{
+func authCheckDispatch(ctx *fasthttp.RequestCtx,out *fasthttp.Request,aHash AuthHash) bool{
 	app := string(ctx.Request.Header.Peek("x-auth-app"))
 	timestamp := string(ctx.Request.Header.Peek("x-auth-timestamp"))
 	if timestamp == "" || app == ""{
@@ -19,14 +19,18 @@ func authCheckDispatch(ctx *fasthttp.RequestCtx,aHash AuthHash) bool{
 		fmt.Println("!appkeyExists")
 		return false
 	}
+	
+	//get real key use in check
+	ckey := signData(appkey+timestamp)
 
 	switch string(ctx.Request.Header.Peek("x-auth-type")){
 		case "1","json":
-			return authCheckJson(ctx,signData(appkey+timestamp))
+			return authCheckJson(ctx,ckey)
+		//this way will replace out request body with realdata!
 		case "2","secret":
-			return authCheckSecret(ctx,signData(appkey+timestamp))
+			return authCheckSecret(ctx,out,ckey)
 		case "3","file":
-			return authCheckFile(ctx,signData(appkey+timestamp))
+			return authCheckFile(ctx,ckey)
 	}
 	return false
 }
@@ -40,8 +44,12 @@ func authCheckJson(ctx *fasthttp.RequestCtx,ckey []byte) bool{
 	return fmt.Sprintf("%x",signData(string(ctx.PostBody())+fmt.Sprintf("%x",ckey))) == sign
 }
 //secret api check
-func authCheckSecret(ctx *fasthttp.RequestCtx,ckey []byte) bool{
-	fmt.Println("======se====")
+func authCheckSecret(ctx *fasthttp.RequestCtx,out *fasthttp.Request,ckey []byte) bool{
+	realdata,err := util.DecryptECB(string(ctx.PostBody()),fmt.Sprintf("%x",ckey))
+	if err!=nil || realdata==""{
+		return false
+	}
+	out.SetBodyString(realdata)
 	return true
 }
 //file api check
@@ -69,7 +77,7 @@ func authCheckFile(ctx *fasthttp.RequestCtx,ckey []byte) bool{
 //	fmt.Printf("\n\nbefor【%+v】\n\n",data)
     sort.Strings(data)
 //	fmt.Printf("\n\nafter【%+v】\n\n",data)
-//	fmt.Printf("\n\n【%s】\n\n",strings.Join(data,"&")+fmt.Sprintf("%x",ckey))
+	fmt.Printf("\n\n【%s】\n\n",strings.Join(data,"&")+fmt.Sprintf("%x",ckey))
 	return fmt.Sprintf("%x",signData(strings.Join(data,"&")+fmt.Sprintf("%x",ckey))) == sign
 }
 

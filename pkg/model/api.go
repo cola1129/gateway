@@ -214,8 +214,8 @@ func (a *API) RenderMock(ctx *fasthttp.RequestCtx) {
 }
 
 // Auth response
-func (a *API) AuthCheck(ctx *fasthttp.RequestCtx) bool {
-	return a.Auth == 0 || authCheckDispatch(ctx,a.AuthHash)
+func (a *API) AuthCheck(ctx *fasthttp.RequestCtx,out *fasthttp.Request) bool {
+	return a.Auth == 0 || authCheckDispatch(ctx,out,a.AuthHash)
 }
 
 // Marshal marshal

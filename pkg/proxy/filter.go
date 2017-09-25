@@ -123,7 +123,7 @@ func (c *proxyContext) InWhitelist(ip string) bool {
 }
 
 func (c *proxyContext) AuthCheck() bool {
-	return c.result.API.AuthCheck(c.originCtx)
+	return c.result.API.AuthCheck(c.originCtx,c.outerReq)
 }
 
 func (c *proxyContext) IsCircuitOpen() bool {

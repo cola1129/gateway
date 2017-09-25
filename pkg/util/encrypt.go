@@ -68,18 +68,6 @@ func (x *ecbDecrypter) CryptBlocks(dst, src []byte) {
 	}
 }
 
-func encodeBase64(b []byte) string {
-	return base64.StdEncoding.EncodeToString(b)
-}
-
-func decodeBase64(s string) []byte {
-	data, err := base64.StdEncoding.DecodeString(s)
-	if err != nil {
-		panic(err)
-	}
-	return data
-}
-
 func PKCS5Padding(ciphertext []byte, blockSize int) []byte {
 	padding := blockSize - len(ciphertext)%blockSize
 	padtext := bytes.Repeat([]byte{byte(padding)}, padding)
@@ -114,27 +102,28 @@ func EncryptECB(src string, hexKey string) string {
 	ecbn.CryptBlocks(crypted, content)
 	return base64.StdEncoding.EncodeToString(crypted)
 }
-func DecryptECB(src string, hexKey string) string {
-	var hasError = false
+func DecryptECB(src string, hexKey string) (string,error) {
+	defer func(){
+		if err:=recover();err!=nil{
+			fmt.Println(err)
+        }
+	}()
+	
+	content,err := base64.StdEncoding.DecodeString(src)
+	if err != nil {
+		return "",err
+	}
+
 	block, err := aes.NewCipher([]byte(hexKey))
 	if err != nil {
-		fmt.Println("key error")
-		hasError = true
+		return "",err
 	}
 
-	if src == "" {
-		fmt.Println("plain content empty")
-		hasError = true
-	}
-
-	if hasError {
-		return ""
-	}
 	ecbn := NewECBDecrypter(block)
-	content := decodeBase64(src)
+
 	//fmt.Println(content)
 	//content = PKCS5Padding(content, block.BlockSize())
 	crypted := make([]byte, len(content))
 	ecbn.CryptBlocks(crypted, content)
-	return string(PKCS5UnPadding(crypted))
+	return string(PKCS5UnPadding(crypted)),nil
 }
